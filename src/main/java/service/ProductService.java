@@ -2,12 +2,13 @@ package service;
 
 import model.Product;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface ProductService {
     Product create(Product product);
 
-    Product getById(Long productId);
+    Optional<Product> getById(Long productId);
 
     List<Product> getAllProducts();
 

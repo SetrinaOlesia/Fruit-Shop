@@ -1,17 +1,19 @@
 package service.impl;
 import dao.ProductDao;
+import factory.Factory;
 import lib.Inject;
 import lib.Service;
 import model.Product;
 import service.ProductService;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
     @Inject
-    private ProductDao productDao;
+    private ProductDao productDao = Factory.getProductDao();
 
     @Override
     public Product create(Product product) {
@@ -19,8 +21,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getById(Long productId) {
-        return null;
+    public Optional<Product> getById(Long productId) {
+        return productDao.getById(productId);
     }
 
     @Override

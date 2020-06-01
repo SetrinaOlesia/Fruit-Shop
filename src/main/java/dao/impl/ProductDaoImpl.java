@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.ProductDao;
+import db.Storage;
 import lib.Dao;
 import model.Product;
 import java.util.List;
@@ -10,12 +11,14 @@ import java.util.Optional;
 public class ProductDaoImpl implements ProductDao {
     @Override
     public Product create(Product product) {
-        return null;
+        Storage.addProduct(product);
+        return product;
     }
 
     @Override
     public Optional<Product> getById(Long productId) {
-        return Optional.empty();
+        List<Product> list = Storage.products;
+        return list.stream().filter(x -> x.getId() == productId).findFirst();
     }
 
     @Override
