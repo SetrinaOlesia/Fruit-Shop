@@ -12,6 +12,6 @@
 
 </head>
 <body>
-<h1 > <span style="font-size: x-large; color: orangered; font-family: Arial; "> Hello Amigo!</span></h1>
+<h1 > <span style="font-size: x-large; color: teal; font-family: Arial; "> Hello Amigo!</span></h1>
 </body>
 </html>
