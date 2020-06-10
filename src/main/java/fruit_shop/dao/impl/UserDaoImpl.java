@@ -2,7 +2,7 @@ package fruit_shop.dao.impl;
 
 import fruit_shop.dao.UserDao;
 import fruit_shop.db.Storage;
-import fruit_shop.exception.DataProcessingException;
+
 import fruit_shop.lib.Dao;
 import fruit_shop.model.User;
 import java.util.List;
@@ -12,24 +12,26 @@ import java.util.Optional;
 public class UserDaoImpl implements UserDao {
 
     @Override
-    public User create(User user) throws DataProcessingException {
-        Storage.users.add(user);
+    public User create(User user)  {
+//        Storage.users.add(user);
+//        return user;
+        Storage.addId(user);
         return user;
     }
 
     @Override
-    public Optional<User> get(Long id) throws DataProcessingException {
+    public Optional<User> get(Long id)  {
         return Storage.users.stream()
                 .filter(u -> u.getUserId().equals(id)).findFirst();
     }
 
     @Override
-    public Optional<User> getByToken(String token) throws DataProcessingException {
+    public Optional<User> getByToken(String token)   {
         return Optional.empty();
     }
 
     @Override
-    public User update(User user) throws DataProcessingException {
+    public User update(User user)  {
         User updatedUser = get(user.getUserId())
                 .orElseThrow(() -> new NoSuchElementException("Can't find user to update"));
         updatedUser.setName(user.getName());
@@ -39,19 +41,29 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void delete(Long id) throws DataProcessingException {
+    public boolean delete(Long id)  {
 
-        Storage.users.remove(Storage.users
+        return Storage.users.remove(Storage.users
+                .stream()
+                .filter(u -> u.getUserId().equals(id))
+                .findFirst()
+                .get());
+
+    }
+
+    @Override
+    public boolean delete(User user) {
+        return Storage.users.remove(Storage.users
                 .stream()
                 .peek(System.out::println)
-                .filter(u -> u.getUserId().equals(id))
+                .filter(u -> u.getName().equals(user.getName()))
                 .peek(System.out::println)
                 .findFirst()
                 .get());
     }
 
     @Override
-    public Optional<User> findByLogin(String login) throws DataProcessingException {
+    public Optional<User> findByLogin(String login)   {
         return Storage.users.stream()
                 .filter(u -> u.getLogin().equals(login))
                 .findFirst();

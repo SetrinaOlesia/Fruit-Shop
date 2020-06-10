@@ -1,22 +1,22 @@
 package fruit_shop.dao;
 
-import fruit_shop.exception.DataProcessingException;
 import fruit_shop.model.User;
 import java.util.List;
 import java.util.Optional;
 
 public interface UserDao {
-    User create(User user) throws DataProcessingException;
+    User create(User user) ;
 
-    Optional<User> get(Long id) throws DataProcessingException;
+    Optional<User> get(Long id)  ;
 
-    Optional<User> getByToken(String token) throws DataProcessingException;
+    Optional<User> getByToken(String token) ;
 
-    User update(User user) throws DataProcessingException;
+    User update(User user) ;
 
-    void delete(Long id) throws DataProcessingException;
+    boolean delete(Long id) ;
+    boolean delete(User user) ;
 
-    Optional<User> findByLogin(String login) throws DataProcessingException;
+    Optional<User> findByLogin(String login) ;
 
-    List<User> getAll() throws DataProcessingException;
+    List<User> getAll()  ;
 }

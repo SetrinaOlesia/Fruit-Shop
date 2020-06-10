@@ -9,13 +9,19 @@ import java.util.List;
 
 public class Storage {
     private static long productId = 0L;
+    private static long userId = 0;
     public static final List<Product> products = new ArrayList<>();
     public static final List<ShoppingCart> shoppingCarts = new ArrayList<>();
     public static final List<Order> orders = new ArrayList<>();
     public static final List<User> users = new ArrayList<>();
+
     public static void addProduct(Product product) {
-        product.setId(++productId);
+          product.setId(++productId);
         products.add(product);
 
+    }
+    public static void addId(User user) {
+        user.setUserId(++userId);
+        users.add(user);
     }
 }

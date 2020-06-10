@@ -1,22 +1,21 @@
 package fruit_shop.dao;
 
-import fruit_shop.exception.DataProcessingException;
 import fruit_shop.model.Product;
 import fruit_shop.model.ShoppingCart;
 import java.util.Optional;
 
 public interface ShoppingCartDao {
-    ShoppingCart create(ShoppingCart shoppingCart) throws DataProcessingException;
+    ShoppingCart create(ShoppingCart shoppingCart);
 
-    Optional<ShoppingCart> get(Long shoppingCartId) throws DataProcessingException;
+    Optional<ShoppingCart> get(Long shoppingCartId);
 
-    ShoppingCart getByUser(Long userId) throws DataProcessingException;
+    ShoppingCart getByUser(Long userId);
 
-    ShoppingCart update(ShoppingCart shoppingCart) throws DataProcessingException;
+    ShoppingCart update(ShoppingCart shoppingCart);
 
-    void delete(Long id) throws DataProcessingException;
+    void delete(Long id);
 
-    void delete(ShoppingCart shoppingCart) throws DataProcessingException;
+    boolean delete(ShoppingCart shoppingCart);
 
-    void delete(ShoppingCart shoppingCart, Product product) throws DataProcessingException;
+    boolean delete(ShoppingCart shoppingCart, Product product);
 }

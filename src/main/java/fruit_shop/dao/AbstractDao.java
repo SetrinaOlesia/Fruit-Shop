@@ -1,12 +1,12 @@
-//package dao;
-//
-//import java.sql.Connection;
-//
-//public class AbstractDao<T> {
-//
-//    protected final Connection connection;
-//
-//    public AbstractDao(Connection connection) {
-//        this.connection = connection;
-//    }
-//}
+package fruit_shop.dao;
+
+import java.sql.Connection;
+
+public class AbstractDao<T> {
+
+    protected final Connection connection;
+
+    public AbstractDao(Connection connection) {
+        this.connection = connection;
+    }
+}
