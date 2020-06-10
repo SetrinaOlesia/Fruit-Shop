@@ -7,11 +7,11 @@ import java.util.Optional;
 public interface ProductDao {
     Product create(Product product);
 
-    Optional<Product> getById(Long productId);
+    Optional<Product> getById(Long id);
 
     Product update(Product product);
 
-    boolean delete(Long productId);
+    boolean delete(Long id);
 
     boolean delete(Product product);
 

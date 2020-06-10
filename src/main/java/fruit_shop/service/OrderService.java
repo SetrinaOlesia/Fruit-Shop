@@ -1,17 +1,22 @@
 package fruit_shop.service;
 
 import fruit_shop.model.Order;
-import fruit_shop.model.ShoppingCart;
+
 import java.util.List;
 
 public interface OrderService {
-    Order completeOrder(ShoppingCart shoppingCart);
 
-    List<Order> getUserOrders(Long userId);
+    public Order create(Order order) ;
 
-    Order get(Long id);
+
+    Order get(Long id)  ;
+
+
+    boolean delete(Long id)  ;
 
     List<Order> getAll();
 
-    boolean delete(Long id);
+    List<Order> getUserOrders(Long userId)  ;
+
+
 }

@@ -2,15 +2,16 @@ package fruit_shop.service;
 
 import fruit_shop.model.Product;
 import fruit_shop.model.ShoppingCart;
+import java.util.List;
 
 public interface ShoppingCartService {
     ShoppingCart create(ShoppingCart shoppingCart);
 
-    ShoppingCart addProduct(ShoppingCart shoppingCart, Product product);
+    ShoppingCart addProduct(ShoppingCart shoppingCart, Long productId);
 
     boolean deleteProduct(ShoppingCart shoppingCart, Product product);
 
-    void clear(ShoppingCart shoppingCart); //remove all products from the shoppingCart
+    List<Product> clearAllProducts(ShoppingCart shoppingCart); //remove all products from the shoppingCart
 
     ShoppingCart getByUserId(Long userId);
 

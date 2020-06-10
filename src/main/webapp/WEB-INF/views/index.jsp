@@ -8,10 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Page my SHOP</title>
 
 </head>
 <body>
-<h1 > <span style="font-size: x-large; color: teal; font-family: Arial; "> Hello Amigo!</span></h1>
+<h1 > <span style="font-size: x-large; color: teal; font-family: Arial; "> Hello Amigo!
+</span></h1>
+<a href="${pageContext.request.contextPath}/injectData">Inject test data into the Db</a>
 </body>
 </html>

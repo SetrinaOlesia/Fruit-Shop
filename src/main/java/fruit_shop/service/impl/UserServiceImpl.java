@@ -1,6 +1,7 @@
 package fruit_shop.service.impl;
 
 import fruit_shop.dao.UserDao;
+
 import fruit_shop.lib.Inject;
 import fruit_shop.lib.Service;
 import fruit_shop.model.User;
@@ -15,26 +16,33 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User user) {
-        return null;
+
+        return userDao.create(user);
     }
 
     @Override
-    public User get(Long id) {
-        return null;
+    public User get(Long userId) {
+        return userDao.get(userId).get();
     }
 
     @Override
     public List<User> getAll() {
-        return null;
+        return userDao.getAll();
     }
 
     @Override
     public User update(User user) {
-        return null;
+        return userDao.update(user);
     }
 
     @Override
-    public boolean delete(Long id) {
-        return false;
+    public boolean delete(Long userId) {
+        return userDao.delete(userId);
     }
+
+    @Override
+    public boolean delete(User user) {
+        return userDao.delete(user);
+    }
+
 }
