@@ -1,6 +1,9 @@
 package fruit_shop.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import javax.management.relation.Role;
 
 public class User {
 
@@ -11,8 +14,37 @@ public class User {
     private String login;
     private String password;
 
-    public User(String name) {
-        this.name = name;
+    private byte[] salt;
+
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
+    }
+
+    private String token;
+    private Set<Role> roles = new HashSet<>();
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Set<Role> getRole() {
+        return roles;
+    }
+
+    public void setRole(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public void addRole(Role role) {
+        roles.add(role);
     }
 
     public String getName() {

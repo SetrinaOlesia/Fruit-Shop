@@ -11,7 +11,7 @@
     <title>Registration</title>
 </head>
 <body>
-<h1><span style=" color: purple; font-family: 'Arial Black'; "> Hi! Provided your user details </span></h1>
+ <h1><span style=" color: purple; font-family: 'Arial Black'; "> Hi! Provided your user details </span></h1>
 <h3 style="font-size: large; color: crimson; ">${message}</h3>
 <form method="post" action="${pageContext.request.contextPath}/registration">
     Add login: <input type="text" name="login"  autocomplete="on">
@@ -19,5 +19,11 @@
     Repeat password: <input type="password" name="pwd-repeat" maxlength="10" size="10">
     <button type="submit">Register</button>
 </form>
+</form>
+<form action="${pageContext.request.contextPath}/">
+    <div class="container col-lg-4">
+        <button class="bs-footer">BACK HOME</button>
+    </div>
+</form
 </body>
 </html>
