@@ -2,11 +2,14 @@ package fruit_shop.service.impl;
 
 import fruit_shop.dao.UserDao;
 
+import fruit_shop.exception.AuthenticationException;
+import fruit_shop.exception.DataProcessingException;
 import fruit_shop.lib.Inject;
 import fruit_shop.lib.Service;
 import fruit_shop.model.User;
 import fruit_shop.service.UserService;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -45,4 +48,17 @@ public class UserServiceImpl implements UserService {
         return userDao.delete(user);
     }
 
-}
+    @Override
+    public User login(String login, String password) throws AuthenticationException, DataProcessingException {
+
+            Optional<User> user = userDao.findByLogin(login);
+//
+//            if (user.isEmpty() || !user.get().getPassword()
+//                    .equals(HashUtil.hashPassword(password, user.get().getSalt()))) {
+//                throw new AuthenticationException("Try again");
+//            }
+            return user.get();
+        }
+    }
+
+

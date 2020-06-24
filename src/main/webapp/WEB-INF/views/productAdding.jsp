@@ -11,7 +11,7 @@
     <title>Fruit_SHOP</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/servlet/productAdding" method="post">
+<form action="${pageContext.request.contextPath}/productAdding" method="post">
     <div class="container" class="form-control" align="center">
         <h1>Add product</h1>
         <hr>

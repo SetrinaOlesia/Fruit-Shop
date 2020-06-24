@@ -5,6 +5,7 @@
   Time: 10:54
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:useBean id="products" scope="request" type="java.util.List<fruit_shop.model.Product>"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,9 +17,9 @@
     <table border="1">
         <tr>
             <th>ID</th>
-            <th>Item</th>
+            <th>Product</th>
             <th>Price</th>
-            <th>Add to bucket</th>
+            <th>Add to shopping cart</th>
         </tr>
         <c:forEach var="product" products="${products}">
             <tr>
